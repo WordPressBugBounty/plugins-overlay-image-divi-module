@@ -4,7 +4,7 @@
 Plugin Name: Overlay Image Divi Module
 Plugin URI:  http://learnhowwp.com/divi-overlay-images
 Description: This plugins adds a new module in the Divi Builder. The module allows you add text when you hover over an image. There are two effects that you can choose for the overlay, Fade and Slide.
-Version:     1.5
+Version:     1.5.1
 Author:      learnhowwp.com
 Author URI:  http://learnhowwp.com/
 License:     GPL2
@@ -25,44 +25,16 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with LWP Overlay Images. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
-//========================================================================//
-//========================ET Marketplace==================================//
-//========================================================================//
-/* if ( ! function_exists( 'lwp_oidm_fs' ) ) {
-
-    require_once plugin_dir_path( __FILE__ ) . 'includes/LwpETFreemiusAlt.php';
-
-    function lwp_oidm_fs() {
-        return new LWP_LwpETFreemiusAlt;
-    }
-
-}
-
-if ( ! function_exists( 'lwp_initialize_overlay_image_extension' ) ):
-function lwp_initialize_overlay_image_extension() {
-    require_once plugin_dir_path( __FILE__ ) . 'includes/LwpOverlayImages.php';
-}
-add_action( 'divi_extensions_init', 'lwp_initialize_overlay_image_extension' );
-endif;
-
-*/
-//========================================================================//
-//========================ET Marketplace==================================//
-//========================================================================//
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
-
 if ( function_exists( 'lwp_oidm_fs' ) ) {
     lwp_oidm_fs()->set_basename( false, __FILE__ );
 } else {
-    
     if ( !function_exists( 'lwp_oidm_fs' ) ) {
         // Create a helper function for easy SDK access.
-        function lwp_oidm_fs()
-        {
-            global  $lwp_oidm_fs ;
-            
+        function lwp_oidm_fs() {
+            global $lwp_oidm_fs;
             if ( !isset( $lwp_oidm_fs ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
@@ -78,53 +50,49 @@ if ( function_exists( 'lwp_oidm_fs' ) ) {
                     'navigation'     => 'tabs',
                     'anonymous_mode' => true,
                     'trial'          => array(
-                    'days'               => 7,
-                    'is_require_payment' => false,
-                ),
+                        'days'               => 7,
+                        'is_require_payment' => false,
+                    ),
                     'menu'           => array(
-                    'slug' => 'lwp_overlay_image',
-                ),
+                        'slug' => 'lwp_overlay_image',
+                    ),
                     'is_live'        => true,
                 ) );
             }
-            
             return $lwp_oidm_fs;
         }
-        
+
         // Init Freemius.
         lwp_oidm_fs();
         // Signal that SDK was initiated.
         do_action( 'lwp_oidm_fs_loaded' );
     }
-    
     //------------------------------------------------------------------------//
-    
     if ( !function_exists( 'lwp_initialize_overlay_image_extension' ) ) {
         /**
          * Creates the extension's main class instance.
          *
          * @since 1.0.0
          */
-        function lwp_initialize_overlay_image_extension()
-        {
+        function lwp_initialize_overlay_image_extension() {
             require_once plugin_dir_path( __FILE__ ) . 'includes/LwpOverlayImages.php';
             require_once plugin_dir_path( __FILE__ ) . 'includes/LwpFunctions.php';
             require_once plugin_dir_path( __FILE__ ) . 'includes/functions-admin.php';
         }
-        
+
         add_action( 'divi_extensions_init', 'lwp_initialize_overlay_image_extension' );
     }
-
 }
-
+// Display annual pricing instead of monthly pricing on Freemius Pricing page.
+lwp_oidm_fs()->add_filter( 'pricing/show_annual_in_monthly', function () {
+    return false;
+} );
 //========================================================================//
 //========================ET Marketplace==================================//
 //========================================================================//
-
 if ( !function_exists( 'lwp_overlay_images_add_icons' ) ) {
     add_filter( 'et_global_assets_list', 'lwp_overlay_images_add_icons', 10 );
-    function lwp_overlay_images_add_icons( $assets )
-    {
+    function lwp_overlay_images_add_icons(  $assets  ) {
         if ( isset( $assets['et_icons_all'] ) && isset( $assets['et_icons_fa'] ) ) {
             return $assets;
         }
@@ -139,7 +107,6 @@ if ( !function_exists( 'lwp_overlay_images_add_icons' ) ) {
     }
 
 }
-
 //========================================================================//
 //========================ET Marketplace==================================//
 //========================================================================//

@@ -1,10 +1,10 @@
 === Overlay Image Divi Module===
-Contributors: themeythemes
+Contributors: themeythemes, freemius
 Tags: divi, divi module, overlay image, text overlay
 Requires at least: 5.0
-Tested up to: 6.5
+Tested up to: 6.7
 Requires PHP: 5.6
-Stable tag: 1.5
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -131,6 +131,9 @@ You can make a purchase directly from [our website](https://www.learnhowwp.com/d
 Yes, the plugin is available on the [Divi Marketplace](https://www.elegantthemes.com/marketplace/divi-overlay-images/), where you can find and purchase it.
 
 == Changelog ==
+
+=1.5.1=
+* Update Freemius SDK to 2.11.
 
 =1.5=
 * Fix image height and width attribute not being added to the image element.

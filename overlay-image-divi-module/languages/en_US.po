@@ -1,15 +1,15 @@
-# Copyright (C) 2023 learnhowwp.com
+# Copyright (C) 2025 learnhowwp.com
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Overlay Image Divi Module 1.5\n"
+"Project-Id-Version: Overlay Image Divi Module 1.5.1\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/overlay-image-divi-module\n"
-"POT-Creation-Date: 2023-07-09 11:11:31+00:00\n"
+"POT-Creation-Date: 2025-01-27 20:20:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
